@@ -46,12 +46,12 @@ import interfaces.IProjects;
 import shared.IOps;
 import sharedtypes.Payitem;
 import sharedtypes.Paytype;
+import sharedtypes.Transaction;
 import interfaces.IData;
 import interfaces.IAuthentication;
 import interfaces.IFinance;
 import interfaces.IProjects;
 
-import deployment.Transaction;
 
 public class UI extends Component<UI> {
 	
@@ -443,7 +443,7 @@ public void SendFinanceMessage( final int p_Sender,  final String p_Content,  fi
 
     // ports
     private UIApp UIApp;
-    public UIApp App() {
+   public UIApp App() {
         if ( null == UIApp ) UIApp = new UIApp( this, null );
         return UIApp;
     }

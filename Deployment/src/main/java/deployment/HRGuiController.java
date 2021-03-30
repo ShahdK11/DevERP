@@ -22,6 +22,7 @@ import hrsystem.hr.main.impl.EmployeeImpl.returnFromLeave;
 import io.ciera.runtime.summit.exceptions.XtumlException;
 import sharedtypes.Payitem;
 import sharedtypes.Paytype;
+import sharedtypes.Transaction;
 
 
 @RestController
@@ -1974,7 +1975,16 @@ private static HRGuiController singleton;
 			e.printStackTrace();
 		}
 	}
-	
+	@PostMapping(path="/CreateChangeRequest", consumes="application/json")
+	public void CreateChangeRequest(String p_Description, String p_Justification, String p_ProjectCode, int p_CreationDate,  String p_ImpactCategory, String p_ImpactDetails ) {
+		// TODO Auto-generated method stub
+		try {
+			UI.Singleton().Projects().CreateChangeRequest(p_Description, p_Justification, p_ProjectCode, p_CreationDate, p_ImpactCategory, p_ImpactDetails);
+		} catch (XtumlException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	@GetMapping(path="/readInitiatives", produces="appliaction/json")
 	public List<deployment.SendInitiatives> ReadInitiatives() {
 		// TODO Auto-generated method stub
